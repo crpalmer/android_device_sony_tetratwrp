@@ -1,7 +1,9 @@
 USE_CAMERA_STUB := true
 
+RECOVERY_VARIANT := twrp
+
 # inherit from the proprietary version
--include vendor/sony/tetra/BoardConfigVendor.mk
+-include vendor/sony/tetratwrp/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_BOARD_PLATFORM := bcm_java
@@ -32,14 +34,14 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
 # Custom recovery
-TARGET_PREBUILT_KERNEL := device/sony/tetra/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := device/sony/tetra/kernel
+TARGET_PREBUILT_KERNEL := device/sony/tetratwrp/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/sony/tetratwrp/kernel
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"font_7x16.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_RECOVERY_FSTAB := device/sony/tetra/config/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/sony/tetratwrp/config/twrp.fstab
 
 
 DEVICE_RESOLUTION := 320x320

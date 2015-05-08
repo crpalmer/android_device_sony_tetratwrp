@@ -19,19 +19,21 @@
 # product configuration (apps).
 #
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Release name
+PRODUCT_RELEASE_NAME := tetra
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, device/sony/tetra/device.mk)
-# This is where we'd set a backup provider if we had one
-#$(call inherit-product, device/sample/products/backup_overlay.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full.mk)
 
+# Inherit device configuration
+$(call inherit-product, device/sony/tetratwrp/device.mk)
 
-# Discard inherited values and use our own instead.
-PRODUCT_NAME := omni_tetra
-PRODUCT_DEVICE := tetra
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := tetratwrp
+PRODUCT_NAME := cm_tetratwrp
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := SmartWatch 3
+PRODUCT_MANUFACTURER := Sony
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=tetra
